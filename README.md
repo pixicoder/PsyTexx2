@@ -34,5 +34,10 @@ Source tree structure:
 * wm - window manager (UI base);
 * xm - XM playback engine;
 
+Screenshots:
+
+![PsyTexx2 alpha 0.6 on Linux](DOCS/psytexx2_alpha_0.6_2024_x11.jpg)
+![PsyTexx2 alpha 0.6 on Palm Tungsten TX](DOCS/psytexx2_alpha_0.6_2024_palm.jpg)
+
 Please support my work:  
 https://warmplace.ru/donate

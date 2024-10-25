@@ -1,0 +1,77 @@
+1) Download binutils-2.25
+2) Configure and build it from another folder using the following commands:
+../binutils-2.25/configure --target="arm-elf" --enable-interwork --enable-multilib
+make -j16
+sudo make install
+
+3) Download gcc-4.5.4
+4) Apply the patch #1
+5) Download newlib-2.1.0; copy /newlib and /libgloss to gcc source root
+6) Configure and build GCC from another folder using the folowing commands:
+../gcc-4.5.4/configure --target="arm-elf" --enable-languages=c,c++ --with-newlib --with-gnu-as --with-gnu-ld --disable-multilib --enable-obsolete
+make -j16 all-gcc
+sudo make install
+
+7) Install prc-tools-remix, PilRC and tools/setup-palm-os-sdk.sh from https://github.com/jichu4n/prc-tools-remix
+8) Edit Makefile: set SDK to the correct PalmOS sdk-5 path (example: PALMOS_SDK = /opt/palmdev/sdk-5r3/include/)
+
+9) Run MAKE_PALMOS script
+
+10) Copy bin/psytexx_palmos.prc to the device SD card: PALM/PALM/Launcher
+If the app from the SD card crashes, it is recommended to delete its local copy: main launcher menu -> App -> Delete -> PsyTexx2 -> Delete.
+
+//
+//
+//
+
+!!!!!!!!
+Current version of the ARM code loader can't execute ARM-code with static functions
+!!!!!!!!
+
+//
+//
+//
+
+"arm-elf" target has been removed from GCC since 4.8. After 4.8, we can use "arm-none-eabi" instead, but I didn't have the time or patience to set it up properly.
+
+The following versions of the compilers have been tested, but, unfortunately, they produce code (apparently due to some kind of optimization) that is not compatible with my ARM loader :(
+GCC 4.7.4
+GCC 4.6.4
+
+GCC 4.5.4 works great. Something significant changed in code generation between versions 4.5.5 and 4.6. Perhaps someone can figure this out - I'd be grateful.
+
+//
+//
+//
+
+GCC PATCH #1
+
+diff --git a/gcc/cp/cfns.gperf b/gcc/cp/cfns.gperf
+index 68acd3d..953262f 100644
+--- a/gcc/cp/cfns.gperf
++++ b/gcc/cp/cfns.gperf
+@@ -22,6 +22,9 @@  __inline
+ static unsigned int hash (const char *, unsigned int);
+ #ifdef __GNUC__
+ __inline
++#ifdef __GNUC_STDC_INLINE__
++__attribute__ ((__gnu_inline__))
++#endif
+ #endif
+ const char * libc_name_p (const char *, unsigned int);
+ %}
+diff --git a/gcc/cp/cfns.h b/gcc/cp/cfns.h
+index 1c6665d..6d00c0e 100644
+--- a/gcc/cp/cfns.h
++++ b/gcc/cp/cfns.h
+@@ -53,6 +53,9 @@  __inline
+ static unsigned int hash (const char *, unsigned int);
+ #ifdef __GNUC__
+ __inline
++#ifdef __GNUC_STDC_INLINE__
++__attribute__ ((__gnu_inline__))
++#endif
+ #endif
+ const char * libc_name_p (const char *, unsigned int);
+ /* maximum key range = 391, duplicates = 0 */
+

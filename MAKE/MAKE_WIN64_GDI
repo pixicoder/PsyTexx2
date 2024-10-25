@@ -1,0 +1,7 @@
+set -e
+
+MAKE_CFLAGS="-O3 -DGDI -DCOLOR32BITS"
+MAKE_LDFLAGS="-O3"
+MAKE_LIBS="-lgdi32"
+make win64 -j16 CFLAGS="$MAKE_CFLAGS" LDFLAGS="$MAKE_LDFLAGS" LIBS="$MAKE_LIBS"
+mv -f psytexx.exe ../BIN/psytexx_win64_gdi.exe

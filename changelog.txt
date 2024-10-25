@@ -1,0 +1,63 @@
+
+ .  . .. .: :: :: [ version 2 alpha 0.6 ] [ 25 oct 2024 ] :: :: :. .. .. .  .
+
+# relicensed to MIT;
+# new platforms: Linux x86_64, Windows x86_64;
+# Linux: SDL2 sound output;
+# partially merged with SunDog engine;
+# code refactoring, minor improvements and bug fixes.
+
+ .  . .. .: :: :: [ version 2 alpha 0.5 ] [ 13 aug 2007 ] :: :: :. .. .. .  .
+
+# Optimized MakeFile - one for the Linux and PalmOS.
+# Added simple piano keyboard.
+# Changed virtual keyboard; now it more minimalistic.
+# Improved real-time keyboard playing.
+# Removed multichannel arpeggio :).
+# Press CTRL + S for save BACKUP.XM.
+# Background images not supported temporary (it's for speed testing).
+# Added XI-instruments saving.
+# Added volume, panning, finetune and relative note controls for instruments.
+# Added new effect I0x - sample play mode: 0 - normal; 1 - back direction; 2 - pause.
+# Added new effect I1x - reduce sampling freq on a current channel.
+# Added new effect I2x - reduce number of bits on a current channel.
+# Fixed auto-vibrato.
+
+ .  . .. .: :: :: [ version 2 alpha 0.4 ] [ 02 jan 2007 ] :: :: :. .. .. .  .
+
+# Added RAW-samples loading function.
+# Some windows redesigned.
+# Added "Clear comments" function.
+# Added two timers: working time and playing time.
+# He he... Multichannel arpeggio (0xx effect) was added. I like it :).
+# Click on a channel: left button - mute/unmute channel; right - solo channel/unmute all.
+# Added new font: 8x13.
+# Improved sample editor.
+# Added wave drawing to the channels view.
+# Fixed many different bugs.
+
+ .  . .. .: :: :: [ version 2 alpha 0.2 ] [ 21 may 2005 ] :: :: :. .. .. .  .
+
+# Now PsyTexx works on the Tapwave Zodiac and the TungstenT5.
+# Fixed MOD loading and playing.
+# Fixed some bugs in XM playing.
+# Added playlist feature.
+# Fullscreen pattern editor.
+# Clear patterns/instruments feature.
+# Fixed bugs in filesystem.
+# Fixed bug with registering filetypes in ARM mode (PalmOS).
+# Filelist is sorted now.
+# Created first version of the PsyTexx2 manual (check the www.warmplace.ru).
+# and other...
+
+.  . .. .: :: :: [ version 2 alpha 0.1 ] [ 20 march 2005 ] :: :: :. .. .. .  .
+
+* Amiga MOD support.
+* XI (FastrTracker instruments) support (at the moment XI loading only).
+* WAV (8/16 bit, stereo/mono) support (at the moment WAV loading only).
+* Dynamic screen (or window) resizing.
+* Linux X11 support.
+* Realltime switching between standard and user (external font.bmp) font.
+* Auto storage memory cleaning after PsyTexx crash (PalmOS only).
+* Now you can click on the pattern view for changing of current cursor position.
+* Fixed some bugs.

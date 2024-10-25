@@ -1,0 +1,7 @@
+set -e
+
+MAKE_CFLAGS="-O3 -m32 -DX11 -DCOLOR32BITS"
+MAKE_LDFLAGS="-O3 -m32"
+MAKE_LIBS="-L/usr/X11R6/lib -lX11"
+make linux -j16 CFLAGS="$MAKE_CFLAGS" LDFLAGS="$MAKE_LDFLAGS" LIBS="$MAKE_LIBS"
+mv -f psytexx ../BIN/psytexx_linux_x86_x11

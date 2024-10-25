@@ -1,0 +1,6 @@
+pack
+/BIN/.prop*
+/BIN/log.txt
+/BIN/psytexx_linux*
+/BIN/psytexx_palmos*
+/BIN/psytexx_win*

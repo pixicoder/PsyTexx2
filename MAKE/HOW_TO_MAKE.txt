@@ -1,0 +1,5 @@
+Execute one of the MAKE_* bash scripts in Linux/macOS Terminal.
+If compilation is successful, you will find the executable file in the ../BIN folder.
+
+Requirements:
+make, gcc, MinGW (Windows), SDL2 lib
